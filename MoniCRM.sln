@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniCRM.DAL", "MiniCRM.DAL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniCRM.Service", "MiniCRM.Service\MiniCRM.Service.csproj", "{70FC56A2-0380-4487-8531-50260139FCD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniCRM.BLL", "MiniCRM.BLL\MiniCRM.BLL.csproj", "{E4B83FD0-1B82-40E3-8142-F12CCCC7B910}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{70FC56A2-0380-4487-8531-50260139FCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70FC56A2-0380-4487-8531-50260139FCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70FC56A2-0380-4487-8531-50260139FCD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4B83FD0-1B82-40E3-8142-F12CCCC7B910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4B83FD0-1B82-40E3-8142-F12CCCC7B910}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4B83FD0-1B82-40E3-8142-F12CCCC7B910}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4B83FD0-1B82-40E3-8142-F12CCCC7B910}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
