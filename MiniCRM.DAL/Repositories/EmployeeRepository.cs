@@ -16,24 +16,29 @@ namespace MiniCRM.DAL.Repositories
             _context = context;
         }
 
-        public Task Create(EmployeeEntity entity)
+        public async Task Create(EmployeeEntity entity)
         {
-            throw new NotImplementedException();
+            await _context.Employees.AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
 
-        public Task Delete(EmployeeEntity entity)
+        public async Task Delete(EmployeeEntity entity)
         {
-            throw new NotImplementedException();
+            _context.Employees.Remove(entity);
+            await _context.SaveChangesAsync();
         }
 
         public IQueryable<EmployeeEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Employees.AsQueryable();
         }
 
-        public Task<EmployeeEntity> Update(EmployeeEntity entity)
+        public async Task<EmployeeEntity> Update(EmployeeEntity entity)
         {
-            throw new NotImplementedException();
+            _context.Employees.Update(entity);
+            await _context.SaveChangesAsync();
+
+            return entity;
         }
     }
 }
