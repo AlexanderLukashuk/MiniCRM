@@ -10,7 +10,7 @@ namespace MiniCRM.BLL.Interfaces
     {
         Task<IEnumerable<Employee>> GetAllEmployees();
 
-        Task<Employee> GetEmployeeById { get; set; }
+        Task<Employee> GetEmployeeById(int employeeId);
 
         Task AddEmployee(Employee employee);
 

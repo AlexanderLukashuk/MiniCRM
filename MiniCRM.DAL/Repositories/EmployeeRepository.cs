@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using MiniCRM.DAL.Entity;
 using MiniCRM.DAL.Interfaces;
 
@@ -39,6 +40,13 @@ namespace MiniCRM.DAL.Repositories
             await _context.SaveChangesAsync();
 
             return entity;
+        }
+
+        public async Task<EmployeeEntity> GetEmployeeById(int employeeId)
+        {
+            var employeeFromDb = await _context.Employees.FirstOrDefaultAsync(e => e.Id == employeeId);
+
+            return employeeFromDb!;
         }
     }
 }
