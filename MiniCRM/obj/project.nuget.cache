@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "dPwn8GNetwkPBGTQUmTYA/CP0QfIRcjrCcH2hLzRZH9PtClTVTU9YK2IICCVz+SdDHtoTjwwHge2S8LUgL4ayA==",
+  "success": true,
+  "projectFilePath": "/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/MiniCRM.csproj",
+  "expectedPackageFiles": [
+    "/Users/aleksandrlukasuk/.nuget/packages/microsoft.aspnetcore.openapi/8.0.0/microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
+    "/Users/aleksandrlukasuk/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/aleksandrlukasuk/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/aleksandrlukasuk/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "/Users/aleksandrlukasuk/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "/Users/aleksandrlukasuk/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "/Users/aleksandrlukasuk/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
