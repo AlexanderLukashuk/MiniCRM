@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseSqlServer(connectionString, optionsBuilder => optionsBuilder.MigrationsAssembly("MiniCRM")));
+        options.UseSqlServer(connectionString, optionsBuilder => optionsBuilder.MigrationsAssembly("MiniCRM.DAL")));
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
