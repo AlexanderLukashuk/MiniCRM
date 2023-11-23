@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using MiniCRM.BLL.Interfaces;
 using MiniCRM.BLL.Models;
 using MiniCRM.DAL.Entity;
@@ -29,16 +30,16 @@ namespace MiniCRM.BLL.Services
             await _taskRepository.Delete(new TaskEntity { Id = taskId });
         }
 
-        public Task<TaskBLL> GetTaskById(int taskId)
+        public async Task<TaskBLL> GetTaskById(int taskId)
         {
             var taskFromDb = await _taskRepository.GetById(taskId);
 
-            return MapToBusinessModels(taskFromDb);
+            return MapToBusinessModel(taskFromDb);
         }
 
-        public Task<IEnumerable<TaskBLL>> GetTasksByEmployeeId(int employeeId)
+        public async Task<IEnumerable<TaskBLL>> GetTasksByEmployeeId(int employeeId)
         {
-            var tasksFromDb = await _taskRepository.GetTasksByEmployeeId(employeeId);
+            var tasksFromDb = await _taskRepository.GetTasksByEmployeeId(employeeId).ToListAsync();
 
             return MapToBusinessModels(tasksFromDb);
         }
