@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MiniCRM.BLL.Models
 {
-    public class Task : BaseEntity
+    public class TaskBLL : BaseEntity
     {
         public int EmployeeId { get; set; }
 
