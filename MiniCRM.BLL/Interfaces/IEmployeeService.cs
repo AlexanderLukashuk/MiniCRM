@@ -12,7 +12,7 @@ namespace MiniCRM.BLL.Interfaces
 
         Task<Employee> GetEmployeeById(int employeeId);
 
-        Task AddEmployee(Employee employee);
+        Task<Employee> AddEmployee(Employee employee);
 
         Task UpdateEmployee(Employee employee);
 

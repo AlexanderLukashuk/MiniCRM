@@ -19,14 +19,17 @@ namespace MiniCRM.BLL.Services
             _employeeRepository = employeeRepository;
         }
 
-        public async Task AddEmployee(Employee employee)
+        public async Task<Employee> AddEmployee(Employee employee)
         {
             var employeeEntity = MapToDataEntity(employee);
             await _employeeRepository.Create(employeeEntity);
+
+            return MapToBusinessModel(employeeEntity);
         }
 
         public async Task DeleteEmployee(int employeeId)
         {
+            
             await _employeeRepository.Delete(new EmployeeEntity { Id = employeeId });
         }
 
