@@ -14,7 +14,7 @@ namespace MiniCRM.BLL.Interfaces
 
         Task<Employee> AddEmployee(Employee employee);
 
-        Task UpdateEmployee(Employee employee);
+        Task UpdateEmployee(int id, Employee employee);
 
         Task<bool> DeleteEmployee(int employeeId);
     }

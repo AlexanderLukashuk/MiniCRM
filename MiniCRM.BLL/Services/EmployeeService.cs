@@ -46,10 +46,18 @@ namespace MiniCRM.BLL.Services
             return MapToBusinessModels(employeesFromDb);
         }
 
-        public async Task UpdateEmployee(Employee employee)
+        public async Task UpdateEmployee(int id, Employee employee)
         {
-            var employeeEmtity = MapToDataEntity(employee);
-            await _employeeRepository.Update(employeeEmtity);
+            var existingEmployee = await _employeeRepository.GetEmployeeById(id);
+            if (existingEmployee == null)
+            {
+                return;
+            }
+
+            existingEmployee.FullName = employee.FullName;
+            existingEmployee.Position = employee.Position;
+            
+            await _employeeRepository.Update(existingEmployee);
         }
 
         async Task<Employee> IEmployeeService.GetEmployeeById(int employeeId)
