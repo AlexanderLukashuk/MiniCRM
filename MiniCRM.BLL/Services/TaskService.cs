@@ -19,10 +19,12 @@ namespace MiniCRM.BLL.Services
             _taskRepository = taskRepository;
         }
 
-        public async Task AddTask(TaskBLL task)
+        public async Task<TaskBLL> AddTask(TaskBLL task)
         {
             var taskEntity = MapToDataEntity(task);
             await _taskRepository.Create(taskEntity);
+
+            return MapToBusinessModel(taskEntity);
         }
 
         public async Task DeleteTask(int taskId)

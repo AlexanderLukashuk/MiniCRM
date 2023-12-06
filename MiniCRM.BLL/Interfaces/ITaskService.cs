@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MiniCRM.BLL.Models;
+using MiniCRM.DAL.Entity;
 
 namespace MiniCRM.BLL.Interfaces
 {
@@ -12,7 +13,7 @@ namespace MiniCRM.BLL.Interfaces
 
         Task<TaskBLL> GetTaskById(int taskId);
 
-        Task AddTask(TaskBLL task);
+        Task<TaskBLL> AddTask(TaskBLL task);
 
         Task UpdateTask(TaskBLL task);
 
