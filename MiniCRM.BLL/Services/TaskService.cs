@@ -27,9 +27,16 @@ namespace MiniCRM.BLL.Services
             return MapToBusinessModel(taskEntity);
         }
 
-        public async Task DeleteTask(int taskId)
+        public async Task<bool> DeleteTask(int taskId)
         {
-            await _taskRepository.Delete(new TaskEntity { Id = taskId });
+            var taskEntity = await _taskRepository.GetById(taskId);
+            if (taskEntity == null)
+            {
+                return false;
+            }
+
+            await _taskRepository.Delete(taskEntity);
+            return true;
         }
 
         public async Task<TaskBLL> GetTaskById(int taskId)
