@@ -47,8 +47,8 @@ namespace MiniCRM.Controllers
                 return BadRequest();
             }
 
-            await _taskService.AddTask(task);
-            return CreatedAtAction(nameof(GetTaskById), new { id = task.Id }, task);
+            var createdTask = await _taskService.AddTask(task);
+            return CreatedAtAction(nameof(GetTaskById), new { id = createdTask.Id }, createdTask);
         }
 
         [HttpPut("{id}")]
@@ -67,7 +67,11 @@ namespace MiniCRM.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteTask(int id)
         {
-            await _taskService.DeleteTask(id);
+            var result = await _taskService.DeleteTask(id);
+            if (!result)
+            {
+                return NotFound();
+            }
 
             return NoContent();
         }
