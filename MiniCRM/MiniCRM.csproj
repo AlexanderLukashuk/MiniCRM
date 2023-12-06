@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MiniCRM.DAL\MiniCRM.DAL.csproj" />
+    <ProjectReference Include="..\MiniCRM.BLL\MiniCRM.BLL.csproj" />
   </ItemGroup>
 
 </Project>
