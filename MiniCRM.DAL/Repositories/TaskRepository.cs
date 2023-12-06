@@ -44,7 +44,9 @@ namespace MiniCRM.DAL.Repositories
 
         public async Task<TaskEntity> GetById(int taskId)
         {
-            return await _context.Tasks.FirstOrDefaultAsync(t => t.Id == taskId);
+            var taskEntity = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == taskId);
+
+            return taskEntity;
         }
 
         public IQueryable<TaskEntity> GetTasksByEmployeeId(int employeeId)
