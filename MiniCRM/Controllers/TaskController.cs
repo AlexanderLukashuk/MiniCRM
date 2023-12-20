@@ -75,5 +75,12 @@ namespace MiniCRM.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("overdue")]
+        public async Task<ActionResult<IEnumerable<TaskBLL>>> GetOverdueTasksWithIncompleteStatus()
+        {
+            var overdueTasks = await _taskService.GetOverdueTasksWithIncompleteStatus();
+            return Ok(overdueTasks);
+        }
     }
 }
