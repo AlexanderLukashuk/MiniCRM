@@ -42,7 +42,7 @@ namespace MiniCRM.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         public async Task<ActionResult<TaskBLL>> CreateTask(TaskBLL task)
         {
             if (!ModelState.IsValid)
@@ -55,7 +55,7 @@ namespace MiniCRM.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         public async Task<ActionResult<TaskBLL>> UpdateTask(int id, TaskBLL task)
         {
             if (!ModelState.IsValid)
@@ -69,7 +69,7 @@ namespace MiniCRM.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteTask(int id)
         {
             var result = await _taskService.DeleteTask(id);
@@ -82,7 +82,7 @@ namespace MiniCRM.Controllers
         }
 
         [HttpGet("overdue")]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<TaskBLL>>> GetOverdueTasksWithIncompleteStatus()
         {
             var overdueTasks = await _taskService.GetOverdueTasksWithIncompleteStatus();

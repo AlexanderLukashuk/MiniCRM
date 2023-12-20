@@ -23,38 +23,38 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseSqlServer(connectionString, optionsBuilder => optionsBuilder.MigrationsAssembly("MiniCRM.DAL")));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
+// builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+//     .AddEntityFrameworkStores<AppDbContext>()
+//     .AddDefaultTokenProviders();
 
-builder.Services.Configure<IdentityOptions>(options =>
-{
+// builder.Services.Configure<IdentityOptions>(options =>
+// {
 
-});
+// });
 
-builder.Services.AddAuthentication(options => {
-    options.DefaultScheme = IdentityConstants.ApplicationScheme;
-    options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = "MiniCRM",
-        ValidAudience = "admin",
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("admin"))
-    };
-});
+// builder.Services.AddAuthentication(options => {
+//     options.DefaultScheme = IdentityConstants.ApplicationScheme;
+//     options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+// })
+// .AddJwtBearer(options =>
+// {
+//     options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+//     {
+//         ValidateIssuer = true,
+//         ValidateAudience = true,
+//         ValidateLifetime = true,
+//         ValidateIssuerSigningKey = true,
+//         ValidIssuer = "MiniCRM",
+//         ValidAudience = "admin",
+//         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("admin"))
+//     };
+// });
 
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
-    options.AddPolicy("EmployeeOnly", policy => policy.RequireRole("Employee"));
-});
+// builder.Services.AddAuthorization(options =>
+// {
+//     options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+//     options.AddPolicy("EmployeeOnly", policy => policy.RequireRole("Employee"));
+// });
 
 builder.Services.AddLogging(loggingBuilder =>
 {
@@ -66,6 +66,8 @@ builder.Services.AddLogging(loggingBuilder =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -76,15 +78,15 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseErrorLoggingMiddleware();
+
+app.UseRouting();
 
 app.UseAuthorization();
 app.UseAuthentication();
 
-app.UseEndpoints(endpoints =>
-{
-    _ = endpoints.MapControllers();
-});
+app.UseErrorLoggingMiddleware();
+
+app.MapControllers();
 
 // var summaries = new[]
 // {
