@@ -1,4 +1,8 @@
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using MiniCRM.DAL;
 using MiniCRM.Middleware;
 using Serilog;
@@ -18,6 +22,39 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseSqlServer(connectionString, optionsBuilder => optionsBuilder.MigrationsAssembly("MiniCRM.DAL")));
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+
+});
+
+builder.Services.AddAuthentication(options => {
+    options.DefaultScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = "MiniCRM",
+        ValidAudience = "admin",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("admin"))
+    };
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("EmployeeOnly", policy => policy.RequireRole("Employee"));
+});
 
 builder.Services.AddLogging(loggingBuilder =>
 {
@@ -40,6 +77,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseErrorLoggingMiddleware();
+
+app.UseAuthorization();
+app.UseAuthentication();
+
+app.UseEndpoints(endpoints =>
+{
+    _ = endpoints.MapControllers();
+});
 
 // var summaries = new[]
 // {
