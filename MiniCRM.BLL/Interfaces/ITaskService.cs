@@ -18,5 +18,7 @@ namespace MiniCRM.BLL.Interfaces
         Task UpdateTask(int id, TaskBLL task);
 
         Task<bool> DeleteTask(int taskId);
+
+        Task<IEnumerable<TaskBLL>> GetOverdueTasksWithIncompleteStatus();
     }
 }
