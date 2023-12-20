@@ -11,9 +11,9 @@ using MiniCRM.BLL.Models;
 
 namespace MiniCRM.Controllers
 {
-    [Authorize(Roles = "Admin, Employee")]
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin")]
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeService _employeeService;

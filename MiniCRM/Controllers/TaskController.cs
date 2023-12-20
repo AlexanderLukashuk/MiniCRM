@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MiniCRM.BLL.Interfaces;
 using MiniCRM.BLL.Models;
@@ -10,6 +11,7 @@ namespace MiniCRM.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin, Employee")]
     public class TaskController : ControllerBase
     {
         private readonly ITaskService _taskService;
