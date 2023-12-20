@@ -138,3 +138,16 @@
 /Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/Serilog.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/Serilog.AspNetCore.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/Serilog.Extensions.Hosting.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/Serilog.Extensions.Logging.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/Serilog.Formatting.Compact.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/Serilog.Settings.Configuration.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/Serilog.Sinks.Console.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/Serilog.Sinks.Debug.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/Serilog.Sinks.File.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/MiniCRM.BLL.dll
+/Users/aleksandrlukasuk/csharp_study/Projects/MoniCRM/MiniCRM/bin/Debug/net8.0/MiniCRM.BLL.pdb
