@@ -53,8 +53,13 @@ namespace MiniCRM.BLL.Services
             return MapToBusinessModels(tasksFromDb);
         }
 
-        public async Task UpdateTask(TaskBLL task)
+        public async Task UpdateTask(int id, TaskBLL task)
         {
+            var existingTask = await _taskRepository.GetById(id);
+            if (existingTask == null)
+            {
+                return;
+            }
             var taskEntity = MapToDataEntity(task);
             await _taskRepository.Update(taskEntity);
         }

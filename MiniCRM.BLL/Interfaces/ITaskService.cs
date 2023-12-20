@@ -15,7 +15,7 @@ namespace MiniCRM.BLL.Interfaces
 
         Task<TaskBLL> AddTask(TaskBLL task);
 
-        Task UpdateTask(TaskBLL task);
+        Task UpdateTask(int id, TaskBLL task);
 
         Task<bool> DeleteTask(int taskId);
     }

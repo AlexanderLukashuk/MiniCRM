@@ -59,7 +59,7 @@ namespace MiniCRM.Controllers
                 return BadRequest();
             }
 
-            await _taskService.UpdateTask(task);
+            await _taskService.UpdateTask(id, task);
 
             return Ok(task);
         }
