@@ -10,8 +10,9 @@ using MiniCRM.BLL.Models;
 
 namespace MiniCRM.Controllers
 {
-    [Route("[controller]")]
-    public class EmployeeController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeService _employeeService;
 
