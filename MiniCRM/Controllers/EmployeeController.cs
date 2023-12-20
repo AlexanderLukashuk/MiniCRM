@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MiniCRM.BLL.Interfaces;
@@ -10,6 +11,7 @@ using MiniCRM.BLL.Models;
 
 namespace MiniCRM.Controllers
 {
+    [Authorize(Roles = "Admin, Employee")]
     [ApiController]
     [Route("api/[controller]")]
     public class EmployeeController : ControllerBase
