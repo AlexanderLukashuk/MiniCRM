@@ -64,6 +64,16 @@ namespace MiniCRM.BLL.Services
             await _taskRepository.Update(taskEntity);
         }
 
+        public async Task<IEnumerable<TaskBLL>> GetOverdueTasksWithIncompleteStatus()
+        {
+            var overdueTasks = await _taskRepository
+                .GetAll()
+                .Where(t => t.Deadline < DateTime.Now && t.CompletionPercentage < 100)
+                .ToListAsync();
+
+            return MapToBusinessModels(overdueTasks);
+        }
+
         private IEnumerable<TaskBLL> MapToBusinessModels(IEnumerable<TaskEntity> taskFromDb)
         {
             return taskFromDb.Select(t => MapToBusinessModel(t));
