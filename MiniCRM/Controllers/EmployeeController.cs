@@ -45,13 +45,24 @@ namespace MiniCRM.Controllers
         [HttpPost]
         public async Task<ActionResult<Employee>> CreateEmployee(Employee employee)
         {
+            if (string.IsNullOrEmpty(employee.FullName))
+            {
+                return BadRequest("FullName cannot be empty");
+            }
+
+            if (string.IsNullOrEmpty(employee.Position))
+            {
+                return BadRequest("Position cannot be empty");
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
             var createdEmployee = await _employeeService.AddEmployee(employee);
-            return CreatedAtAction(nameof(GetEmployeeById), new { id = createdEmployee.Id }, createdEmployee);
+            // return CreatedAtAction(nameof(GetEmployeeById), new { id = createdEmployee.Id }, createdEmployee);
+            return Ok(createdEmployee);
         }
 
         [HttpDelete("{id}")]
