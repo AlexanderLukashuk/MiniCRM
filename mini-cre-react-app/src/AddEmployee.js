@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 
 const AddEmplloyee = ({ onAddEmployee }) => {
     const [name, setName] = useState('');
+    const [position, setPosition] = useState('');
 
     const handleAddEmployee = () => {
-        fetch('http://localhost:5004/api/employees', {
+        fetch('http://localhost:5084/api/employee', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -27,6 +28,12 @@ const AddEmplloyee = ({ onAddEmployee }) => {
                 placeholder="Employee Name"
                 value={name}
                 onChange={e => setName(e.target.value)}
+            />
+            <input
+                type="text"
+                placeholder="Employee Position"
+                value={position}
+                onChange={e => setPosition(e.target.value)}
             />
             <button onClick={handleAddEmployee}>Add Employee</button>
         </div>
