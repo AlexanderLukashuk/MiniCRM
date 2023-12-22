@@ -27,6 +27,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.InitializeRepositories();
 builder.Services.InitializeServices();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost",
+    builder =>
+    {
+        builder.WithOrigins("http://localhost:3000")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+    });
+});
+
 // builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 //     .AddEntityFrameworkStores<AppDbContext>()
 //     .AddDefaultTokenProviders();
@@ -89,6 +100,8 @@ app.UseAuthorization();
 app.UseAuthentication();
 
 app.UseErrorLoggingMiddleware();
+
+app.UseCors("AllowLocalhost");
 
 app.MapControllers();
 
