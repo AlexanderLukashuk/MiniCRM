@@ -10,7 +10,7 @@ const AddEmplloyee = ({ onAddEmployee }) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name }),
+            body: JSON.stringify({ fullName: name, position: position }),
         })
             .then(response => response.json())
             .then(data => {
