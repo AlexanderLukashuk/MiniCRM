@@ -5,7 +5,7 @@ const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/employees')
+    fetch('http://localhost:5084/api/employee')
       .then(response => response.json())
       .then(data => setEmployees(data))
       .catch(error => console.error('Error fetching employees:', error));
