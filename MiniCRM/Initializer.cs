@@ -17,6 +17,9 @@ namespace MiniCRM
         {
             services.AddScoped<IBaseRepository<EmployeeEntity>, EmployeeRepository>();
             services.AddScoped<IBaseRepository<TaskEntity>, TaskRepository>();
+
+            services.AddScoped<EmployeeRepository>();
+            services.AddScoped<TaskRepository>();
         }
 
         public static void InitializeServices(this IServiceCollection services)

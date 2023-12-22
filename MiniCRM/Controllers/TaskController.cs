@@ -11,7 +11,7 @@ namespace MiniCRM.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Admin, Employee")]
+    // [Authorize(Roles = "Admin, Employee")]
     public class TaskController : ControllerBase
     {
         private readonly ITaskService _taskService;
@@ -21,7 +21,7 @@ namespace MiniCRM.Controllers
             _taskService = taskService;
         }
 
-        [HttpGet("{employeeId}")]
+        [HttpGet("employee/{employeeId}")]
         public async Task<ActionResult<IEnumerable<Task>>> GetTasksBYEmployeeId(int employeeId)
         {
             var tasks = await _taskService.GetTasksByEmployeeId(employeeId);
