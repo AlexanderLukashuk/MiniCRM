@@ -62,7 +62,8 @@ namespace MiniCRM.Controllers
 
             var createdEmployee = await _employeeService.AddEmployee(employee);
             // return CreatedAtAction(nameof(GetEmployeeById), new { id = createdEmployee.Id }, createdEmployee);
-            return Ok(createdEmployee);
+            // return Ok(createdEmployee);
+            return Ok(new { Message = "Employee created successfully", Employee = createdEmployee });
         }
 
         [HttpDelete("{id}")]
