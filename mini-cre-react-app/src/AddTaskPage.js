@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const AddTaskPage = () => {
     const [taskName, setTaskName] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [completionPercentage, setCompletionPercentage] = useState('');
+    const navigate = useNavigate();
 
     const handleAddTask = () => {
         fetch('http://localhost:5084/api/task', {
@@ -17,7 +19,7 @@ const AddTaskPage = () => {
             .then(response => response.json())
             .then(data => {
                 // console.log('Task added:', data);
-                history.push(`/task/${data.id}`);
+                navigate(`/task/${data.id}`);
             })
             .catch(error => console.error('Error adding task:', error));
     };
