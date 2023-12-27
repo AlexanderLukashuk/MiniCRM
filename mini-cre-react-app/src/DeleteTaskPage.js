@@ -1,6 +1,10 @@
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const DeleteTaskPage = () => {
+    const navigate = useNavigate();
+    const { taskId } = useParams();
+
     const handleDeleteTask = () => {
         fetch(`http://localhost:5084/api/task/${taskId}`, {
             method: 'DELETE',
@@ -8,7 +12,7 @@ const DeleteTaskPage = () => {
         .then(response => {
             if (response.ok) {
                 // console.log('Task deleted');
-                history.push('/task');
+                navigate('/task');
             } else {
                 console.error('Error deleting tasl:', response.statusText);
             }
