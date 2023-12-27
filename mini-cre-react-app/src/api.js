@@ -91,3 +91,18 @@ export const getOverdueTasks = async () => {
         throw error;
     }
 }
+
+export const deleteEmployee = async (employeeId) => {
+    try {
+        const response = await fetch(`${baseUrl}/employee/${employeeId}`, {
+            method: 'DELETE',
+        });
+
+        if (!response.ok) {
+            throw new Error('Error deleting employee');
+        }
+    } catch (error) {
+        console.error('Error deleting employee:', error);
+        throw error;
+    }
+};
