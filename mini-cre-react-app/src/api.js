@@ -46,7 +46,7 @@ export const register = async (userData) => {
 
 export const getEmployees = async () => {
     try {
-        const response = await fetch(`${baseUrl}/employees`);
+        const response = await fetch(`${baseUrl}/employee`);
 
         if (!response.ok) {
             throw new Error('Failed to fetch employees');

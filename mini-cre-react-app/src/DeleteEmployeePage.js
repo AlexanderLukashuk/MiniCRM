@@ -18,6 +18,7 @@ const DeleteEmployeePage = () => {
     const handleDeleteEmployee = async (employeeId) => {
         try {
             await deleteEmployee(employeeId);
+            navigate('/');
         } catch (error) {
             console.error('Error deleting employee:', error);
         }
