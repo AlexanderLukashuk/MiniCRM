@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
     const [username, setUserName] = useState('');
     const [password, setPassowrd] = useState('');
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleLogin = () => {
         fetch('http://localhost:5084/api/login', {
@@ -19,7 +19,7 @@ const LoginPage = () => {
                     throw new Error('Authentication failed');
                 }
 
-                history.push('/home');
+                navigate('/home');
             })
             .catch(error => console.error('Error authenticating:', error));
     };
