@@ -36,7 +36,7 @@ const HomePage = () => {
             <div>
                 <Link to="/add-employee">Add Employee</Link>
                 <button onClick={() => console.log('Edit clicked')}>Edit</button>
-                <button onClick={handleDeleteEmployee}>Delete</button>
+                <Link to="/delete-employee">Delete Employee</Link>
                 <button onClick={() => console.log('Tasks clicked')}>Tasks</button>
                 <button onClick={() => console.log('Report clicked')}>Report</button>
             </div>
