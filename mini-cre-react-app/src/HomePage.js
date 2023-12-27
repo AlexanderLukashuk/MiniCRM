@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import handleAddEmployee from "./AddEmployeePage";
+import handleDeleteEmployee from "./DeleteEmployeePage";
+import AddEmplloyeePage from "./AddEmployeePage";
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
     const [employees, setEmployees] = useState([]);
@@ -30,9 +34,9 @@ const HomePage = () => {
         <div>
             <h2>Home Page</h2>
             <div>
-                <button onClick={() => console.log('Add clicked')}>Add</button>
+                <Link to="/add-employee">Add Employee</Link>
                 <button onClick={() => console.log('Edit clicked')}>Edit</button>
-                <button onClick={() => console.log('Delete clicked')}>Delete</button>
+                <button onClick={handleDeleteEmployee}>Delete</button>
                 <button onClick={() => console.log('Tasks clicked')}>Tasks</button>
                 <button onClick={() => console.log('Report clicked')}>Report</button>
             </div>
