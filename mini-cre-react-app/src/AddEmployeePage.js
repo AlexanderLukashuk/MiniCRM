@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const AddEmplloyeePage = ({ onAddEmployee }) => {
+const AddEmplloyeePage = () => {
     const [name, setName] = useState('');
     const [position, setPosition] = useState('');
-    const histoy = useHistory();
+    const navigate = useNavigate();
 
-    const handleAddEmployee = () => {
+    const handleAddEmployee = (employeeData) => {
         fetch('http://localhost:5084/api/employee', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name, position }),
+            body: JSON.stringify({ fullName: name, position: position }),
         })
             .then(response => response.json())
             .then(data => {
-                onAddEmployee(data);
-                histoy.push('/employees');
+                // onAddEmployee(data);
+                navigate('/');
             })
             .catch(error => console.error('Error adding employee:', error));
     };
