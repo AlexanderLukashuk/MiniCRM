@@ -43,7 +43,8 @@
 // export default App;
 
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
 import HomePage from "./HomePage";
@@ -52,6 +53,8 @@ import OverdueTaskPage from "./OverdueTasksPage";
 import AddTaskPage from "./AddTaskPage";
 import EditTaskPage from "./EditTaskPage";
 import DeleteTaskPage from "./DeleteTaskPage";
+import AddEmplloyeePage from "./AddEmployeePage";
+import DeleteEmployeePage from "./DeleteEmployeePage";
 
 const App = () => {
   return (
@@ -71,23 +74,20 @@ const App = () => {
           </ul>
         </nav>
 
-        <Switch>
-          <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={RegisterPage} />
-          <Route path="home" component={HomePage} />
-          <Route path="/employee/:id/tasks" component={EmployeeTaskPage} />
-          <Route path="/overdue-tasks" component={OverdueTaskPage} />
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/employee/:id/tasks" element={<EmployeeTaskPage />} />
+          <Route path="/overdue-tasks" element={<OverdueTaskPage />} />
 
-          <Route path="/add-task">
-            <AddTaskPage />
-          </Route>
-          <Route path="/edit-task">
-            <EditTaskPage />
-          </Route>
-          <Route path="/delete-task">
-            <DeleteTaskPage />
-          </Route>
-        </Switch>
+          <Route path="/add-employee" element={ <AddEmplloyeePage />} />
+          <Route path="/delete-employee" element={ <DeleteEmployeePage />} />
+          
+          <Route path="/add-task" element={<AddTaskPage />} />
+          <Route path="/edit-task" element={<EditTaskPage />} />
+          <Route path="/delete-task" element={<DeleteTaskPage />} />
+        </Routes>
       </div>
     </Router>
   );
