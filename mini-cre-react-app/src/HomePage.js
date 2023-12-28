@@ -38,7 +38,7 @@ const HomePage = () => {
                 <Link to="/add-employee">Add Employee</Link>
                 <Link to="/edit-employee">Edit Employee</Link>
                 <Link to="/delete-employee">Delete Employee</Link>
-                <button onClick={() => console.log('Tasks clicked')}>Tasks</button>
+                <Link to="employee-tasks">Tasks</Link>
                 <button onClick={() => console.log('Report clicked')}>Report</button>
             </div>
             <div>
