@@ -106,3 +106,18 @@ export const deleteEmployee = async (employeeId) => {
         throw error;
     }
 };
+
+export const editEmployee = async (employeeId) => {
+    try {
+        const response = await fetch(`${baseUrl}/employee/${employeeId}`, {
+            method: 'PUT',
+        });
+
+        if (!response.ok) {
+            throw new Error('Error editing employee');
+        }
+    } catch (error) {
+        console.error('Error editing employee:', error);
+        throw error;
+    }
+};
