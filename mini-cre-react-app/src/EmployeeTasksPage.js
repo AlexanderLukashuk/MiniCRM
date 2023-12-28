@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import handleAddTask from "./AddTaskPage";
 import handleEditTask from "./EditTaskPage";
 import handleDeleteTask from "./DeleteTaskPage";
 
 const EmployeeTaskPage = ({ match }) => {
+    const { id } = useParams();
+    const navigate = useNavigate();
     const [employeeTasks, setEmployeeTasks] = useState([]);
 
     const fetchEmployeeTasks = async () => {
         try {
-            const response = await fetch('http://localhost:5084/api/employee/${match.params.employeeId/tasks}');
+            const response = await fetch(`http://localhost:5084/api/task/employee/${id}`);
             const data = await response.json();
             setEmployeeTasks(data);
         } catch (error) {
@@ -18,7 +22,7 @@ const EmployeeTaskPage = ({ match }) => {
 
     useEffect(() => {
         fetchEmployeeTasks();
-    }, [match.params.employeeId]);
+    }, [id]);
 
     return (
         <div>
@@ -42,14 +46,15 @@ const EmployeeTaskPage = ({ match }) => {
                     {employeeTasks.map(task => (
                         <tr key={task.id}>
                             <td>{task.id}</td>
-                            <td>{task.taskName}</td>
+                            <td>{task.title}</td>
                             <td>{task.startDate}</td>
-                            <td>{task.endDate}</td>
-                            <td>{task.percentComplete}</td>
+                            <td>{task.deadline}</td>
+                            <td>{task.completionPercentage}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+            <Link to="/">Home</Link>
         </div>
     );
 };
