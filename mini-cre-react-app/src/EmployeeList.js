@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import AddEmplloyee from './AddEmployee';
+import { useNavigate } from 'react-router-dom';
+import { getEmployees } from './api';
 
 const EmployeeList = () => {
     const [employees, setEmployees] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:5084/api/employee')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                setEmployees(data);
-            })
-            .catch(error => console.error('Error fetching employees:', error));
+        const fetchEmployees = async () => {
+            const data = await getEmployees();
+            setEmployees(data);
+        };
+
+        fetchEmployees();
     }, []);
 
-    const handleAddEmployee = newEmployee => {
-        setEmployees([...employees, newEmployee]);
+    const handleEmployeeTasks = async (employeeId) => {
+        navigate(`${employeeId}`);
     }
 
     return (
@@ -23,10 +24,12 @@ const EmployeeList = () => {
             <h2>Employee List</h2>
             <ul>
                 {employees.map(employee => (
-                    <li key={employee.id}>{employee.fullName}</li>
+                    <li key={employee.id}>
+                        {employee.fullName} - {employee.position}
+                        <button onClick={() => handleEmployeeTasks(employee.id)}>Tasks</button>
+                    </li>
                 ))}
             </ul>
-            <AddEmplloyee onAddEmployee={handleAddEmployee} />
         </div>
     );
 };
