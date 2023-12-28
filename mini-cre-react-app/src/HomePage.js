@@ -3,6 +3,7 @@ import handleAddEmployee from "./AddEmployeePage";
 import handleDeleteEmployee from "./DeleteEmployeePage";
 import AddEmplloyeePage from "./AddEmployeePage";
 import { Link } from 'react-router-dom'
+import EditEmployeeListItem from "./EditEmployeeListItem";
 
 const HomePage = () => {
     const [employees, setEmployees] = useState([]);
@@ -35,7 +36,7 @@ const HomePage = () => {
             <h2>Home Page</h2>
             <div>
                 <Link to="/add-employee">Add Employee</Link>
-                <button onClick={() => console.log('Edit clicked')}>Edit</button>
+                <Link to="/edit-employee">Edit Employee</Link>
                 <Link to="/delete-employee">Delete Employee</Link>
                 <button onClick={() => console.log('Tasks clicked')}>Tasks</button>
                 <button onClick={() => console.log('Report clicked')}>Report</button>
