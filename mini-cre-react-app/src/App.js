@@ -57,6 +57,7 @@ import AddEmplloyeePage from "./AddEmployeePage";
 import DeleteEmployeePage from "./DeleteEmployeePage";
 import EditEmployeeListItem from "./EditEmployeeListItem";
 import EditEmployeePage from "./EditEmployeePage";
+import EmployeeList from "./EmployeeList";
 
 const App = () => {
   return (
@@ -87,6 +88,8 @@ const App = () => {
           <Route path="/delete-employee" element={ <DeleteEmployeePage />} />
           <Route path="/edit-employee" element={ <EditEmployeeListItem /> } />
           <Route path="/edit-employee/:id" element={ <EditEmployeePage /> } />
+          <Route path="employee-tasks" element={ <EmployeeList /> } />
+          <Route path="employee-tasks/:id" element={ <EmployeeTaskPage /> } />
           
           <Route path="/add-task" element={<AddTaskPage />} />
           <Route path="/edit-task" element={<EditTaskPage />} />
