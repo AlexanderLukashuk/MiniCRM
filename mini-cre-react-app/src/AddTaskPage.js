@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const AddTaskPage = () => {
+    const { id } = useParams();
     const [taskName, setTaskName] = useState('');
+    const [description, setTaskDescription] = useState('');
     const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
+    const [deadline, setEndDate] = useState('');
     const [completionPercentage, setCompletionPercentage] = useState('');
     const navigate = useNavigate();
 
@@ -14,12 +16,11 @@ const AddTaskPage = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ taskName, startDate, endDate, completionPercentage }),
+            body: JSON.stringify({ title: taskName, description, startDate, deadline, completionPercentage, employeeId: id, }),
         })
             .then(response => response.json())
-            .then(data => {
-                // console.log('Task added:', data);
-                navigate(`/task/${data.id}`);
+            .then(() => {
+                navigate("/");
             })
             .catch(error => console.error('Error adding task:', error));
     };
@@ -29,10 +30,12 @@ const AddTaskPage = () => {
             <h2>Add Task</h2>
             <label>Task Name:</label>
             <input type="text" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
+            <label>Description:</label>
+            <input type="text" value={description} onChange={(e) => setTaskDescription(e.target.value)} />
             <label>Start Date:</label>
-            <input type="text" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+            <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
             <label>End Date:</label>
-            <input type="text" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+            <input type="date" value={deadline} onChange={(e) => setEndDate(e.target.value)} />
             <label>Completion Percentage:</label>
             <input
                 type="number"
