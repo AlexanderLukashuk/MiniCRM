@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import handleAddTask from "./AddTaskPage";
 import handleEditTask from "./EditTaskPage";
 import handleDeleteTask from "./DeleteTaskPage";
 
@@ -28,7 +27,7 @@ const EmployeeTaskPage = ({ match }) => {
         <div>
             <h2>Employee Tasks Page</h2>
             <div>
-                <button onClick={handleAddTask}>Add task</button>
+                <Link to={`/add-task/${id}`}>Add Task</Link>
                 <button onClick={handleEditTask}>Edit task</button>
                 <button onClick={handleDeleteTask}>Delete task</button>
             </div>
