@@ -91,7 +91,8 @@ const App = () => {
           <Route path="employee-tasks" element={ <EmployeeList /> } />
           <Route path="employee-tasks/:id" element={ <EmployeeTaskPage /> } />
           
-          <Route path="/add-task" element={<AddTaskPage />} />
+          {/* <Route path="/add-task" element={<AddTaskPage />} /> */}
+          <Route path="/add-task/:id" element={<AddTaskPage />} />
           <Route path="/edit-task" element={<EditTaskPage />} />
           <Route path="/delete-task" element={<DeleteTaskPage />} />
         </Routes>
