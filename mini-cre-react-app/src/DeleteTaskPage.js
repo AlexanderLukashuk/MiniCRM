@@ -12,7 +12,7 @@ const DeleteTaskPage = () => {
         .then(response => {
             if (response.ok) {
                 // console.log('Task deleted');
-                navigate('/task');
+                navigate('/');
             } else {
                 console.error('Error deleting tasl:', response.statusText);
             }
@@ -20,11 +20,18 @@ const DeleteTaskPage = () => {
         .catch(error => console.error('Error deleting task:', error));
     };
 
+    const handleCancelDeleteTask = () => {
+        navigate('/');
+    }
+
     return (
         <div>
             <h2>Delete Task</h2>
             <p>Are you sure you want to delete this task?</p>
-            <button onClick={handleDeleteTask}>Delete Task</button>
+            <div>
+                <button onClick={handleDeleteTask}>Delete Task</button>
+                <button onClick={handleCancelDeleteTask}>Cancel</button>
+            </div>
         </div>
     );
 };
