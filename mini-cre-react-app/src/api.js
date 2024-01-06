@@ -60,9 +60,9 @@ export const getEmployees = async () => {
     }
 };
 
-export const getEmployeeTasks = async (employeeId) => {
+export const getEmployeeTasks = async (id) => {
     try {
-        const response = await fetch(`${baseUrl}/employee/${employeeId}/tasks`);
+        const response = await fetch(`${baseUrl}/task/employee/${id}`);
 
         if (!response.ok) {
             throw new Error('Failed to fetch employee tasks');
