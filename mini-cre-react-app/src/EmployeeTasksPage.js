@@ -28,8 +28,8 @@ const EmployeeTaskPage = ({ match }) => {
             <h2>Employee Tasks Page</h2>
             <div>
                 <Link to={`/add-task/${id}`}>Add Task</Link>
-                <button onClick={handleEditTask}>Edit task</button>
-                <button onClick={handleDeleteTask}>Delete task</button>
+                <Link to={`/edit-tasks-list/${id}`}>Edit task</Link>
+                <Link to={`/delete-task-list/${id}`}>Delete task</Link>
             </div>
             <table>
                 <thead>
