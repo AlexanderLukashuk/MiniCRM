@@ -5,7 +5,7 @@ const OverdueTaskPage = () => {
 
     const fetchOverdueTasks = async () => {
         try {
-            const response = await fetch('http://localhost:5084/api/tasks/overdue');
+            const response = await fetch('http://localhost:5084/api/task/overdue');
             const data = await response.json();
             setOverdueTasks(data);
         } catch (error) {
@@ -40,10 +40,10 @@ const OverdueTaskPage = () => {
                         <tr key={task.id}>
                             <td>{task.id}</td>
                             <td>{task.employeeName}</td>
-                            <td>{task.taskName}</td>
+                            <td>{task.title}</td>
                             <td>{task.startDate}</td>
-                            <td>{task.endDate}</td>
-                            <td>{task.percentComplete}</td>
+                            <td>{task.deadline}</td>
+                            <td>{task.completionPercentage}</td>
                             <td>{task.daysOverdue}</td>
                         </tr>
                     ))}
