@@ -50,8 +50,17 @@ namespace MiniCRM.Controllers
                 return BadRequest();
             }
 
-            var createdTask = await _taskService.AddTask(task);
-            return CreatedAtAction(nameof(GetTaskById), new { id = createdTask.Id }, createdTask);
+
+            try
+            {
+                var createdTask = await _taskService.AddTask(task);
+                return CreatedAtAction(nameof(GetTaskById), new { id = createdTask.Id }, createdTask);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{task.EmployeeId} Error creating task: {ex.Message}");
+                return StatusCode(500, $"Internal server Error: {ex.Message}");
+            }
         }
 
         [HttpPut("{id}")]
@@ -65,7 +74,8 @@ namespace MiniCRM.Controllers
 
             await _taskService.UpdateTask(id, task);
 
-            return Ok(task);
+            // return Ok(task);
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
