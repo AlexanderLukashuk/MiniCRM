@@ -53,30 +53,19 @@ import OverdueTaskPage from "./OverdueTasksPage";
 import AddTaskPage from "./AddTaskPage";
 import EditTaskPage from "./EditTaskPage";
 import DeleteTaskPage from "./DeleteTaskPage";
+import DeleteTaskListItem from "./DeleteTaskListItem"
 import AddEmplloyeePage from "./AddEmployeePage";
 import DeleteEmployeePage from "./DeleteEmployeePage";
 import EditEmployeeListItem from "./EditEmployeeListItem";
 import EditEmployeePage from "./EditEmployeePage";
 import EmployeeList from "./EmployeeList";
+import EditTaskListItem from "./EditTaskListItem";
+import DeleteEmployeeListPage from "./DeleteEmployeeListPage";
 
 const App = () => {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/add-task">Add Task</Link>
-            </li>
-            <li>
-              <Link to="/edit-task">Edit Task</Link>
-            </li>
-            <li>
-              <Link to="/delete-task">Delete Task</Link>
-            </li>
-          </ul>
-        </nav>
-
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -85,7 +74,8 @@ const App = () => {
           <Route path="/overdue-tasks" element={<OverdueTaskPage />} />
 
           <Route path="/add-employee" element={ <AddEmplloyeePage />} />
-          <Route path="/delete-employee" element={ <DeleteEmployeePage />} />
+          <Route path="/delete-employee" element={ <DeleteEmployeeListPage />} />
+          <Route path="/delete-employee/:id" element={ <DeleteEmployeePage /> } />
           <Route path="/edit-employee" element={ <EditEmployeeListItem /> } />
           <Route path="/edit-employee/:id" element={ <EditEmployeePage /> } />
           <Route path="employee-tasks" element={ <EmployeeList /> } />
@@ -93,8 +83,12 @@ const App = () => {
           
           {/* <Route path="/add-task" element={<AddTaskPage />} /> */}
           <Route path="/add-task/:id" element={<AddTaskPage />} />
-          <Route path="/edit-task" element={<EditTaskPage />} />
-          <Route path="/delete-task" element={<DeleteTaskPage />} />
+          <Route path="/edit-tasks-list/:id" element={<EditTaskListItem />} />
+          <Route path="/edit-tasks-list/:id/edit-task/:taskId" element={<EditTaskPage />} />
+          <Route path="/delete-task-list/:id" element={<DeleteTaskListItem />} />
+          <Route path="/delete-task-list/:id/delete-task/:taskId" element={<DeleteTaskPage />} />
+
+          <Route path="/report" element={<OverdueTaskPage />} />
         </Routes>
       </div>
     </Router>
