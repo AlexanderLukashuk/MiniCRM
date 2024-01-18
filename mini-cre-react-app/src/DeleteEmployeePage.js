@@ -1,40 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { getEmployees, deleteEmployee } from './api';
+import React from "react";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 const DeleteEmployeePage = () => {
-    const [employees, setEmployees] = useState([]);
     const navigate = useNavigate();
+    const { id } = useParams();
 
-    useEffect(() => {
-        const fetchEmployees = async () => {
-            const data = await getEmployees();
-            setEmployees(data);
-        };
+    const handleDeleteEmployee = () => {
+        fetch(`http://localhost:5084/api/employee/${id}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.ok) {
+                navigate('/');
+            } else {
+                console.error('Error deleting employee: ', response.statusText);
+            }
+        })
+        .catch(error => console.error('Error deleting employee: ', error));
+    };
 
-        fetchEmployees();
-    }, []);
-
-    const handleDeleteEmployee = async (employeeId) => {
-        try {
-            await deleteEmployee(employeeId);
-            navigate('/');
-        } catch (error) {
-            console.error('Error deleting employee:', error);
-        }
+    const handleCancelDeleteEmployee = () => {
+        navigate('/');
     };
 
     return (
         <div>
             <h2>Delete Employee</h2>
-            <ul>
-                {employees.map((employee) => (
-                    <li key={employee.id}>
-                        {employee.fullName} - {employee.position}
-                        <button onClick={() => handleDeleteEmployee(employee.id)}>Delete</button>
-                    </li>
-                ))}
-            </ul>
+            <p>Are you sure you want to delete this employee?</p>
+            <div>
+                <button onClick={handleDeleteEmployee}>Delete</button>
+                <button onClick={handleCancelDeleteEmployee}>Cancel</button>
+            </div>
         </div>
     );
 };
