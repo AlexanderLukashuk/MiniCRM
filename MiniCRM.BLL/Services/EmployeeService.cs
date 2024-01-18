@@ -14,9 +14,12 @@ namespace MiniCRM.BLL.Services
     {
         private readonly EmployeeRepository _employeeRepository;
 
-        public EmployeeService(EmployeeRepository employeeRepository)
+        private readonly TaskRepository _taskRepository;
+
+        public EmployeeService(EmployeeRepository employeeRepository, TaskRepository taskRepository)
         {
             _employeeRepository = employeeRepository;
+            _taskRepository = taskRepository;
         }
 
         public async Task<Employee> AddEmployee(Employee employee)
@@ -34,6 +37,8 @@ namespace MiniCRM.BLL.Services
             {
                 return false;
             }
+
+            await DeleteEmployeeTasks(employeeId);
 
             await _employeeRepository.Delete(employeeEntity);
             return true;
@@ -90,6 +95,21 @@ namespace MiniCRM.BLL.Services
                 FullName = employee.FullName,
                 Position = employee.Position
             };
+        }
+
+        private async Task DeleteEmployeeTasks(int employeeId)
+        {
+            var tasks = await _taskRepository.GetTasksByEmployeeId(employeeId).ToListAsync();
+
+            if (tasks == null)
+            {
+                return;
+            }
+
+            foreach (var task in tasks)
+            {
+                await _taskRepository.Delete(task);
+            }
         }
     }
 }
