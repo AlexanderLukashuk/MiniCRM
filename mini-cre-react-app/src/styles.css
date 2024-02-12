@@ -59,19 +59,19 @@ h2 {
     margin-bottom: 20px;
 }
 
-.add-employee-container label {
+.info-label {
     display: block;
     margin-bottom: 10px;
 }
 
-.add-employee-container input {
+.info-input {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
     box-sizing: border-box;
 }
 
-.add-employee-container button {
+.action-button {
     padding: 10px 20px;
     background-color: #4caf50;
     color: white;
@@ -80,7 +80,7 @@ h2 {
     cursor: pointer;
 }
 
-.add-employee-container button:hover {
+.action-button:hover {
     background-color: #45a049;
 }
 
