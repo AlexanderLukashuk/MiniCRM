@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import handleAddEmployee from "./AddEmployeePage";
-import handleDeleteEmployee from "./DeleteEmployeePage";
+import handleDeleteEmployee from "./DeleteEmployeeListPage";
 import AddEmplloyeePage from "./AddEmployeePage";
 import { Link } from 'react-router-dom'
 import EditEmployeeListItem from "./EditEmployeeListItem";
+import './styles.css';
 
 const HomePage = () => {
     const [employees, setEmployees] = useState([]);
@@ -32,24 +33,26 @@ const HomePage = () => {
     }, []);
 
     return (
-        <div>
+        <div className="container">
             <h2>Home Page</h2>
-            <div>
-                <Link to="/add-employee">Add Employee</Link>
-                <Link to="/edit-employee">Edit Employee</Link>
-                <Link to="/delete-employee">Delete Employee</Link>
-                <Link to="employee-tasks">Tasks</Link>
-                <Link to="/report">Report</Link>
+            <div className="buttons-and-search">
+                <Link to="/add-employee" className="button-link">Add Employee</Link>
+                <Link to="/edit-employee" className="button-link">Edit Employee</Link>
+                <Link to="/delete-employee" className="button-link">Delete Employee</Link>
+                <Link to="employee-tasks" className="button-link">Tasks</Link>
+                <Link to="/report" className="button-link">Report</Link>
+
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Search by name"
+                        value={searchTerm}
+                        onChange={e => setSearchTerm(e.target.value)}
+                    />
+                    <button onClick={handleSearch}>Search</button>
+                </div>
             </div>
-            <div>
-                <input
-                    type="text"
-                    placeholder="Search by name"
-                    value={searchTerm}
-                    onChange={e => setSearchTerm(e.target.value)}
-                />
-                <button onClick={handleSearch}>Search</button>
-            </div>
+            
             <table>
                 <thead>
                     <tr>
