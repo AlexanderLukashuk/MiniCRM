@@ -26,23 +26,23 @@ const AddEmplloyeePage = () => {
     return (
         <div className="add-employee-container page-container">
             <h2 className="page-name">Add Employee</h2>
-            <label>Name:</label>
-            <input
+            <label className="info-label">Name:</label>
+            <input className="info-input"
                 type="text"
                 placeholder="Employee Name"
                 value={name}
                 onChange={e => setName(e.target.value)}
             />
             <br />
-            <label>Position:</label>
-            <input
+            <label className="info-label">Position:</label>
+            <input className="info-input"
                 type="text"
                 placeholder="Employee Position"
                 value={position}
                 onChange={e => setPosition(e.target.value)}
             />
             <br />
-            <button onClick={handleAddEmployee}>Add Employee</button>
+            <button className="action-button" onClick={handleAddEmployee}>Add Employee</button>
         </div>
     );
 };
