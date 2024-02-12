@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getEmployees } from './api';
 import { Link } from 'react-router-dom';
+import './styles.css';
 
 const EditEmployeeListItem = ({ employee }) => {
     // return (
@@ -36,13 +37,15 @@ const EditEmployeeListItem = ({ employee }) => {
     };
 
     return (
-        <div>
-            <h2>Edit Employee</h2>
+        <div className="edit-employee-container page-container">
+            <h2 className="page-name">Edit Employee</h2>
             <ul>
                 {employees.map((employee) => (
                     <li key={employee.id}>
-                        {employee.fullName} - {employee.position}
-                        <button onClick={() => handleEditEmployee(employee.id)}>Edit</button>
+                        <div className="employee-info">
+                            {employee.fullName} - {employee.position}
+                        </div>
+                        <button className="edit-action-buttons" onClick={() => handleEditEmployee(employee.id)}>Edit</button>
                     </li>
                 ))}
             </ul>
