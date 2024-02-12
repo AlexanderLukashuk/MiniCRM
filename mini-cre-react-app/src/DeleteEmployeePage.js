@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
+import './styles.css';
 
 const DeleteEmployeePage = () => {
     const navigate = useNavigate();
@@ -24,12 +25,12 @@ const DeleteEmployeePage = () => {
     };
 
     return (
-        <div>
-            <h2>Delete Employee</h2>
+        <div className="page-container">
+            <h2 className="page-name">Delete Employee</h2>
             <p>Are you sure you want to delete this employee?</p>
-            <div>
-                <button onClick={handleDeleteEmployee}>Delete</button>
-                <button onClick={handleCancelDeleteEmployee}>Cancel</button>
+            <div className="action-button-delete">
+                <button className="action-button" onClick={handleDeleteEmployee}>Delete</button>
+                <button className="action-button" onClick={handleCancelDeleteEmployee}>Cancel</button>
             </div>
         </div>
     );

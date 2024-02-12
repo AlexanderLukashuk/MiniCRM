@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getEmployees } from './api';
+import './styles.css';
 
 const DeleteEmployeeListPage = () => {
     const [employees, setEmployees] = useState([]);
@@ -28,13 +29,15 @@ const DeleteEmployeeListPage = () => {
     };
 
     return (
-        <div>
-            <h2>Delete Employee</h2>
+        <div className="list-employee-container page-container">
+            <h2 className="page-name">Delete Employee</h2>
             <ul>
                 {employees.map((employee) => (
                     <li key={employee.id}>
-                        {employee.fullName} - {employee.position}
-                        <button onClick={() => handleDeleteEmployee(employee.id)}>Delete</button>
+                        <div className="employee-info">
+                            {employee.fullName} - {employee.position}
+                        </div>
+                        <button className="list-action-buttons" onClick={() => handleDeleteEmployee(employee.id)}>Delete</button>
                         {/* <button onClick={handleDeleteEmployee}>Delete</button> */}
                     </li>
                 ))}
