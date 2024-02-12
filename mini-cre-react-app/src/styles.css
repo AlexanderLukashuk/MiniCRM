@@ -84,17 +84,17 @@ h2 {
     background-color: #45a049;
 }
 
-.edit-employee-container {
+.list-employee-container {
     max-width: 600px;
     margin: 0 auto;
 }
 
-.edit-employee-container ul {
+.list-employee-container ul {
     list-style-type: none;
     padding: 0;
 }
 
-.edit-employee-container li {
+.list-employee-container li {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -105,7 +105,7 @@ h2 {
     flex-grow: 1;
 }
 
-.edit-action-buttons {
+.list-action-buttons {
     padding: 5px 10px;
     background-color: #4caf50;
     color: white;
@@ -114,6 +114,12 @@ h2 {
     cursor: pointer;
 }
 
-.edit-action-buttons:hover {
+.list-action-buttons:hover {
     background-color: #45a049;
+}
+
+.action-button-delete {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
 }
