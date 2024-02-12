@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
+import './styles.css';
 
 const AddEmplloyeePage = () => {
     const [name, setName] = useState('');
@@ -23,7 +24,7 @@ const AddEmplloyeePage = () => {
     };
 
     return (
-        <div>
+        <div className="add-employee-container">
             <h2>Add Employee</h2>
             <label>Name:</label>
             <input
