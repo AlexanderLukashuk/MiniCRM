@@ -49,3 +49,37 @@ h2 {
 .button-link:hover {
     background-color: #45a049;
 }
+
+.add-employee-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.add-employee-container h2 {
+    margin-bottom: 20px;
+}
+
+.add-employee-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.add-employee-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.add-employee-container button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-employee-container button:hover {
+    background-color: #45a049;
+}
