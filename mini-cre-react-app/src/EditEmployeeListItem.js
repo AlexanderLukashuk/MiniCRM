@@ -37,7 +37,7 @@ const EditEmployeeListItem = ({ employee }) => {
     };
 
     return (
-        <div className="edit-employee-container page-container">
+        <div className="list-employee-container page-container">
             <h2 className="page-name">Edit Employee</h2>
             <ul>
                 {employees.map((employee) => (
@@ -45,7 +45,7 @@ const EditEmployeeListItem = ({ employee }) => {
                         <div className="employee-info">
                             {employee.fullName} - {employee.position}
                         </div>
-                        <button className="edit-action-buttons" onClick={() => handleEditEmployee(employee.id)}>Edit</button>
+                        <button className="list-action-buttons" onClick={() => handleEditEmployee(employee.id)}>Edit</button>
                     </li>
                 ))}
             </ul>
