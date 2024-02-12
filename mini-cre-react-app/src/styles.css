@@ -50,12 +50,12 @@ h2 {
     background-color: #45a049;
 }
 
-.add-employee-container {
+.page-container {
     max-width: 400px;
     margin: 0 auto;
 }
 
-.add-employee-container h2 {
+.page-name {
     margin-bottom: 20px;
 }
 
@@ -81,5 +81,39 @@ h2 {
 }
 
 .add-employee-container button:hover {
+    background-color: #45a049;
+}
+
+.edit-employee-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.edit-employee-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.edit-employee-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.employee-info {
+    flex-grow: 1;
+}
+
+.edit-action-buttons {
+    padding: 5px 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-action-buttons:hover {
     background-color: #45a049;
 }
