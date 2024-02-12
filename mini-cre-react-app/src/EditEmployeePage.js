@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import './styles.css';
 
 const EditEmployeePage = () => {
     const { id } = useParams();
@@ -37,25 +38,25 @@ const EditEmployeePage = () => {
     };
 
     return (
-        <div>
-            <h2>Edit Employee</h2>
-            <label>Name:</label>
-            <input
+        <div className="edit-employee-page-contaioner page-container">
+            <h2 className="page-name">Edit Employee</h2>
+            <label className="info-label">Name:</label>
+            <input className="info-input"
                 type="text"
                 placeholder="Employee Name"
                 value={employee.fullName}
                 onChange={e => setEmployee({ ...employee, fullName: e.target.value })}
             />
             <br />
-            <label>Position:</label>
-            <input
+            <label className="info-label">Position:</label>
+            <input className="info-input"
                 type="text"
                 placeholder="Employee Position"
                 value={employee.position}
                 onChange={e => setEmployee({ ...employee, position: e.targetvalue })}
             />
             <br />
-            <button onClick={handleEditEmployee}>Edit Employee</button>
+            <button className="action-button" onClick={handleEditEmployee}>Edit Employee</button>
         </div>
     );
 };
