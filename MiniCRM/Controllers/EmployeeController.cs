@@ -23,10 +23,17 @@ namespace MiniCRM.Controllers
             _employeeService = employeeService;
         }
 
+        // [HttpGet]
+        // public async Task<ActionResult<IEnumerable<Employee>>> GetAllEmployees()
+        // {
+        //     var employees = await _employeeService.GetAllEmployees();
+        //     return Ok(employees);
+        // }
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetAllEmployees()
+        public async Task<ActionResult<IEnumerable<EmployeeWithTaskInfo>>> GetAllEmployees()
         {
-            var employees = await _employeeService.GetAllEmployees();
+            var employees = await _employeeService.GetAllEmployeeWithTaskInfo();
             return Ok(employees);
         }
 
