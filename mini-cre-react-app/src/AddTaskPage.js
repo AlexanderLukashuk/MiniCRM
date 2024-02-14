@@ -26,23 +26,24 @@ const AddTaskPage = () => {
     };
 
     return (
-        <div>
-            <h2>Add Task</h2>
-            <label>Task Name:</label>
-            <input type="text" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
-            <label>Description:</label>
-            <input type="text" value={description} onChange={(e) => setTaskDescription(e.target.value)} />
-            <label>Start Date:</label>
-            <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-            <label>End Date:</label>
-            <input type="date" value={deadline} onChange={(e) => setEndDate(e.target.value)} />
-            <label>Completion Percentage:</label>
+        <div className="add-container page-container">
+            <h2 className="page-name">Add Task</h2>
+            <label className="info-label">Task Name:</label>
+            <input className="info-input" type="text" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
+            <label className="info-label">Description:</label>
+            <input className="info-input" type="text" value={description} onChange={(e) => setTaskDescription(e.target.value)} />
+            <label className="info-label">Start Date:</label>
+            <input className="info-input" type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+            <label className="info-label">End Date:</label>
+            <input className="info-input" type="date" value={deadline} onChange={(e) => setEndDate(e.target.value)} />
+            <label className="info-label">Completion Percentage:</label>
             <input
+                className="info-input"
                 type="number"
                 value={completionPercentage}
                 onChange={(e) => setCompletionPercentage(e.target.value)}
             />
-            <button onClick={handleAddTask}>Add Task</button>
+            <button className="action-button" onClick={handleAddTask}>Add Task</button>
         </div>
     );
 };

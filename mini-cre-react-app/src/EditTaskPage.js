@@ -29,23 +29,24 @@ const EditTaskPage = () => {
     };
 
     return (
-        <div>
-            <h2>Edit Task</h2>
-            <label>Task Name:</label>
-            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-            <label>Task Description:</label>
-            <input type="text" value={taskDescription} onChange={(e) => setTaskDescription(e.target.value)} />
-            <label>Start Date:</label>
-            <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-            <label>End Date:</label>
-            <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
-            <label>Completion Percentage:</label>
+        <div className="edit-page-contaioner page-container">
+            <h2 className="page-name">Edit Task</h2>
+            <label className="info-label">Task Name:</label>
+            <input className="info-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <label className="info-label">Task Description:</label>
+            <input className="info-input" type="text" value={taskDescription} onChange={(e) => setTaskDescription(e.target.value)} />
+            <label className="info-label">Start Date:</label>
+            <input className="info-input" type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+            <label className="info-label">End Date:</label>
+            <input className="info-input" type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+            <label className="info-label">Completion Percentage:</label>
             <input
+                className="info-input"
                 type="number"
                 value={completionPercentage}
                 onChange={(e) => setCompletionPercentage(e.target.value)}
             />
-            <button onClick={handleEditTask}>Edit Task</button>
+            <button className="action-button" onClick={handleEditTask}>Edit Task</button>
         </div>
     );
 };

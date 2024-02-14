@@ -21,13 +21,15 @@ const EditTaskListItem = () => {
     };
 
     return (
-        <div>
-            <h2>Edit Task</h2>
+        <div className="list-container page-container">
+            <h2 className="page-name">Edit Task</h2>
             <ul>
                 {tasks.map((task) => (
                     <li key={task.id}>
-                        {task.title} - {task.description} - {task.startDate} - {task.deadline} - {task.completionPercentage}
-                        <button onClick={() => handleEditTask(task.id)}>Edit</button>
+                        <div className="info">
+                            {task.title} - {task.description} - {task.startDate} - {task.deadline} - {task.completionPercentage}
+                        </div>
+                        <button className="list-action-buttons" onClick={() => handleEditTask(task.id)}>Edit</button>
                     </li>
                 ))}
             </ul>

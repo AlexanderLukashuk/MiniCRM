@@ -25,12 +25,12 @@ const DeleteTaskPage = () => {
     }
 
     return (
-        <div>
-            <h2>Delete Task</h2>
+        <div className="page-container">
+            <h2 className="page-name">Delete Task</h2>
             <p>Are you sure you want to delete this task?</p>
-            <div>
-                <button onClick={handleDeleteTask}>Delete Task</button>
-                <button onClick={handleCancelDeleteTask}>Cancel</button>
+            <div className="action-button-delete">
+                <button className="action-button" onClick={handleDeleteTask}>Delete</button>
+                <button className="action-button" onClick={handleCancelDeleteTask}>Cancel</button>
             </div>
         </div>
     );

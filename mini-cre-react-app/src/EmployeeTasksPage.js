@@ -24,12 +24,12 @@ const EmployeeTaskPage = ({ match }) => {
     }, [id]);
 
     return (
-        <div>
-            <h2>Employee Tasks Page</h2>
-            <div>
-                <Link to={`/add-task/${id}`}>Add Task</Link>
-                <Link to={`/edit-tasks-list/${id}`}>Edit task</Link>
-                <Link to={`/delete-task-list/${id}`}>Delete task</Link>
+        <div className="container">
+            <h2 className="page-name">Employee Tasks Page</h2>
+            <div className="buttons-and-search">
+                <Link to={`/add-task/${id}`} className="button-link">Add Task</Link>
+                <Link to={`/edit-tasks-list/${id}`} className="button-link">Edit task</Link>
+                <Link to={`/delete-task-list/${id}`} className="button-link">Delete task</Link>
             </div>
             <table>
                 <thead>
@@ -53,7 +53,7 @@ const EmployeeTaskPage = ({ match }) => {
                     ))}
                 </tbody>
             </table>
-            <Link to="/">Home</Link>
+            <Link to="/" className="button-link">Home</Link>
         </div>
     );
 };

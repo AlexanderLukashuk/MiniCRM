@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import AddEmplloyee from './AddEmployee';
+// import AddEmplloyee from './AddEmployee';
 
 const MainPage = () => {
     const [searchTerm, setSearchTerm] = useState('');

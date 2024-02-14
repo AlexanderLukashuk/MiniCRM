@@ -21,13 +21,15 @@ const DeleteTaskListItem = () => {
     }
 
     return (
-        <div>
-            <h2>Delete Task</h2>
+        <div className="list-container page-container">
+            <h2 className="page-name">Delete Task</h2>
             <ul>
                 {tasks.map((task) => (
                     <li key={task.id}>
-                        {task.title} - {task.description} - {task.startDate} - {task.deadline} - {task.completionPercentage}
-                        <button onClick={() => handleDeleteTask(task.id)}>Delete</button>
+                        <div className="info">
+                            {task.title} - {task.description} - {task.startDate} - {task.deadline} - {task.completionPercentage}
+                        </div>
+                        <button className="list-action-buttons" onClick={() => handleDeleteTask(task.id)}>Delete</button>
                     </li>
                 ))}
             </ul>

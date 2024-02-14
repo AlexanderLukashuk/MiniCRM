@@ -24,7 +24,7 @@ const AddEmplloyeePage = () => {
     };
 
     return (
-        <div className="add-employee-container page-container">
+        <div className="add-container page-container">
             <h2 className="page-name">Add Employee</h2>
             <label className="info-label">Name:</label>
             <input className="info-input"
