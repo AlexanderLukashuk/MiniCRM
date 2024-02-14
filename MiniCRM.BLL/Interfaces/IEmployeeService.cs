@@ -17,5 +17,7 @@ namespace MiniCRM.BLL.Interfaces
         Task UpdateEmployee(int id, Employee employee);
 
         Task<bool> DeleteEmployee(int employeeId);
+
+        Task<IEnumerable<EmployeeWithTaskInfo>> GetAllEmployeeWithTaskInfo();
     }
 }
