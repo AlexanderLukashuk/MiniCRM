@@ -41,14 +41,15 @@ const EditEmployeeListItem = ({ employee }) => {
             <h2 className="page-name">Edit Employee</h2>
             <ul>
                 {employees.map((employee) => (
-                    <li key={employee.id}>
+                    <li key={employee.employee.id}>
                         <div className="info">
-                            {employee.fullName} - {employee.position}
+                            {employee.employee.fullName} - {employee.employee.position}
                         </div>
-                        <button className="list-action-buttons" onClick={() => handleEditEmployee(employee.id)}>Edit</button>
+                        <button className="list-action-buttons" onClick={() => handleEditEmployee(employee.employee.id)}>Edit</button>
                     </li>
                 ))}
             </ul>
+            <Link to="/" className="button-link">Home</Link>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const OverdueTaskPage = () => {
     const [overdueTasks, setOverdueTasks] = useState([]);
@@ -49,6 +50,7 @@ const OverdueTaskPage = () => {
                     ))}
                 </tbody>
             </table>
+            <Link to="/" className="button-link">Home</Link>
         </div>
     );
 };

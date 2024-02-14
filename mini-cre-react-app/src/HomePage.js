@@ -65,12 +65,12 @@ const HomePage = () => {
                 </thead>
                 <tbody>
                     {employees.map(employee => (
-                        <tr key={employee.id}>
-                            <td>{employee.id}</td>
-                            <td>{employee.fullName}</td>
-                            <td>{employee.position}</td>
-                            <td>{/* Логика для отображения количества задач */}</td>
-                            <td>{/* Логика для отображения процента выполнения */}</td>
+                        <tr key={employee.employee.id}>
+                            <td>{employee.employee.id}</td>
+                            <td>{employee.employee.fullName}</td>
+                            <td>{employee.employee.position}</td>
+                            <td>{employee.taskCount}</td>
+                            <td>{employee.completionPercentage}</td>
                         </tr>
                     ))}
                 </tbody>

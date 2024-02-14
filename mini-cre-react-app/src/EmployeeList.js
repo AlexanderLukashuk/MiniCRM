@@ -24,11 +24,11 @@ const EmployeeList = () => {
             <h2 className='page-name'>Employee List</h2>
             <ul>
                 {employees.map(employee => (
-                    <li key={employee.id}>
+                    <li key={employee.employee.id}>
                         <div className="info">
-                            {employee.fullName} - {employee.position}
+                            {employee.employee.fullName} - {employee.employee.position}
                         </div>
-                        <button className="list-action-buttons" onClick={() => handleEmployeeTasks(employee.id)}>Tasks</button>
+                        <button className="list-action-buttons" onClick={() => handleEmployeeTasks(employee.employee.id)}>Tasks</button>
                     </li>
                 ))}
             </ul>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getEmployees } from './api';
 import './styles.css';
 
@@ -33,15 +33,16 @@ const DeleteEmployeeListPage = () => {
             <h2 className="page-name">Delete Employee</h2>
             <ul>
                 {employees.map((employee) => (
-                    <li key={employee.id}>
+                    <li key={employee.employee.id}>
                         <div className="info">
-                            {employee.fullName} - {employee.position}
+                            {employee.employee.fullName} - {employee.employee.position}
                         </div>
-                        <button className="list-action-buttons" onClick={() => handleDeleteEmployee(employee.id)}>Delete</button>
+                        <button className="list-action-buttons" onClick={() => handleDeleteEmployee(employee.employee.id)}>Delete</button>
                         {/* <button onClick={handleDeleteEmployee}>Delete</button> */}
                     </li>
                 ))}
             </ul>
+            <Link to="/" className="button-link">Home</Link>
         </div>
     );
 };

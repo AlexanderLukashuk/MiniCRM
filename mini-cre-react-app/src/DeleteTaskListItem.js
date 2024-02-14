@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getEmployeeTasks } from "./api";
 
 const DeleteTaskListItem = () => {
@@ -33,6 +33,7 @@ const DeleteTaskListItem = () => {
                     </li>
                 ))}
             </ul>
+            <Link to="/" className="button-link">Home</Link>
         </div>
     );
 };
