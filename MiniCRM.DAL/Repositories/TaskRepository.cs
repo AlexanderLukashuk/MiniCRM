@@ -46,12 +46,26 @@ namespace MiniCRM.DAL.Repositories
         {
             var taskEntity = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == taskId);
 
-            return taskEntity;
+            return taskEntity!;
         }
 
         public IQueryable<TaskEntity> GetTasksByEmployeeId(int employeeId)
         {
             return _context.Tasks.Where(t => t.EmployeeId == employeeId).AsQueryable();
+        }
+
+        public async Task<int> GetTaskCountByEmployeeId(int employeeId)
+        {
+            return await _context.Tasks
+                .Where(t => t.EmployeeId == employeeId)
+                .CountAsync();
+        }
+
+        public async Task<int> GetCompletedTaskCountByEmployeeId(int employeeId)
+        {
+            return await _context.Tasks
+                .Where(t => t.EmployeeId == employeeId && t.CompletionPercentage == 100)
+                .CountAsync();
         }
     }
 }
