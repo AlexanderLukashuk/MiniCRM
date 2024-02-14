@@ -20,13 +20,15 @@ const EmployeeList = () => {
     }
 
     return (
-        <div>
-            <h2>Employee List</h2>
+        <div className='list-container page-container'>
+            <h2 className='page-name'>Employee List</h2>
             <ul>
                 {employees.map(employee => (
                     <li key={employee.id}>
-                        {employee.fullName} - {employee.position}
-                        <button onClick={() => handleEmployeeTasks(employee.id)}>Tasks</button>
+                        <div className="info">
+                            {employee.fullName} - {employee.position}
+                        </div>
+                        <button className="list-action-buttons" onClick={() => handleEmployeeTasks(employee.id)}>Tasks</button>
                     </li>
                 ))}
             </ul>
