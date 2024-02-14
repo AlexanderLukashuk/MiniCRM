@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import './styles.css';
+import { HandleCancelButton } from "./api";
 
 const DeleteEmployeePage = () => {
     const navigate = useNavigate();
@@ -20,17 +21,13 @@ const DeleteEmployeePage = () => {
         .catch(error => console.error('Error deleting employee: ', error));
     };
 
-    const handleCancelDeleteEmployee = () => {
-        navigate('/');
-    };
-
     return (
         <div className="page-container">
             <h2 className="page-name">Delete Employee</h2>
             <p>Are you sure you want to delete this employee?</p>
-            <div className="action-button-delete">
+            <div className="action-button-cancel">
                 <button className="action-button" onClick={handleDeleteEmployee}>Delete</button>
-                <button className="action-button" onClick={handleCancelDeleteEmployee}>Cancel</button>
+                <button className="action-button" onClick={() => HandleCancelButton(navigate)}>Cancel</button>
             </div>
         </div>
     );

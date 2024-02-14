@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const baseUrl = 'http://localhost:5084/api';
 
 export const login = async (credentials) => {
@@ -121,3 +123,8 @@ export const editEmployee = async (employeeId) => {
         throw error;
     }
 };
+
+export const HandleCancelButton = (navigate) => {
+    // const navigate = useNavigate('/');
+    navigate('/');
+}

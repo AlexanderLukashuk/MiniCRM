@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { HandleCancelButton } from "./api";
 
 const EditTaskPage = () => {
     const params = useParams();
@@ -46,7 +47,10 @@ const EditTaskPage = () => {
                 value={completionPercentage}
                 onChange={(e) => setCompletionPercentage(e.target.value)}
             />
-            <button className="action-button" onClick={handleEditTask}>Edit Task</button>
+            <div className="action-button-cancel">
+                <button className="action-button" onClick={handleEditTask}>Edit</button>
+                <button className="action-button" onClick={() => HandleCancelButton(navigate)}>Cancel</button>
+            </div>
         </div>
     );
 };

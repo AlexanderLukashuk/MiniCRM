@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import './styles.css';
+import { HandleCancelButton } from "./api";
 
 const AddEmplloyeePage = () => {
     const [name, setName] = useState('');
@@ -42,7 +43,10 @@ const AddEmplloyeePage = () => {
                 onChange={e => setPosition(e.target.value)}
             />
             <br />
-            <button className="action-button" onClick={handleAddEmployee}>Add Employee</button>
+            <div className="action-button-cancel">
+                <button className="action-button" onClick={handleAddEmployee}>Add</button>
+                <button className="action-button" onClick={() => HandleCancelButton(navigate)}>Cancel</button>
+            </div>
         </div>
     );
 };

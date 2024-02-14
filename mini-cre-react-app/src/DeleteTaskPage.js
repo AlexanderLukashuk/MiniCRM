@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { HandleCancelButton } from "./api";
 
 const DeleteTaskPage = () => {
     const navigate = useNavigate();
@@ -20,17 +21,13 @@ const DeleteTaskPage = () => {
         .catch(error => console.error('Error deleting task:', error));
     };
 
-    const handleCancelDeleteTask = () => {
-        navigate('/');
-    }
-
     return (
         <div className="page-container">
             <h2 className="page-name">Delete Task</h2>
             <p>Are you sure you want to delete this task?</p>
-            <div className="action-button-delete">
+            <div className="action-button-cancel">
                 <button className="action-button" onClick={handleDeleteTask}>Delete</button>
-                <button className="action-button" onClick={handleCancelDeleteTask}>Cancel</button>
+                <button className="action-button" onClick={() => HandleCancelButton(navigate)}>Cancel</button>
             </div>
         </div>
     );

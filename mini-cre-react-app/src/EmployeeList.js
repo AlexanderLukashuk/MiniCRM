@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getEmployees } from './api';
 
 const EmployeeList = () => {
@@ -32,6 +32,7 @@ const EmployeeList = () => {
                     </li>
                 ))}
             </ul>
+            <Link to="/" className="button-link">Home</Link>
         </div>
     );
 };

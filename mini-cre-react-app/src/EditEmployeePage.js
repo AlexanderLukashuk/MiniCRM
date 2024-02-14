@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import './styles.css';
+import { HandleCancelButton } from "./api";
 
 const EditEmployeePage = () => {
     const { id } = useParams();
@@ -58,7 +59,10 @@ const EditEmployeePage = () => {
                 onChange={e => setEmployee({ ...employee, position: e.targetvalue })}
             />
             <br />
-            <button className="action-button" onClick={handleEditEmployee}>Edit Employee</button>
+            <div className="action-button-cancel">
+                <button className="action-button" onClick={handleEditEmployee}>Edit</button>
+                <button className="action-button" onClick={() => HandleCancelButton(navigate)}>Cancel</button>
+            </div>
         </div>
     );
 };
