@@ -51,6 +51,29 @@ namespace MiniCRM.BLL.Services
             return MapToBusinessModels(employeesFromDb);
         }
 
+        public async Task<IEnumerable<EmployeeWithTaskInfo>> GetAllEmployeeWithTaskInfo()
+        {
+            var employees = await _employeeRepository.GetAll().ToListAsync();
+
+            var employeesWithTaskInfo = new List<EmployeeWithTaskInfo>();
+
+            foreach (var employee in employees)
+            {
+                var taskCount = await _taskRepository.GetTaskCountByEmployeeId(employee.Id);
+                var completedTaskCount = await _taskRepository.GetCompletedTaskCountByEmployeeId(employee.Id);
+                var completionPercentage = taskCount > 0 ? (int)((double)completedTaskCount / taskCount * 100) : 0;
+
+                employeesWithTaskInfo.Add(new EmployeeWithTaskInfo
+                {
+                    Employee = MapToBusinessModel(employee),
+                    TaskCount = taskCount,
+                    CompletionPercentage = completionPercentage
+                });
+            }
+
+            return employeesWithTaskInfo;
+        }
+
         public async Task UpdateEmployee(int id, Employee employee)
         {
             var existingEmployee = await _employeeRepository.GetEmployeeById(id);
