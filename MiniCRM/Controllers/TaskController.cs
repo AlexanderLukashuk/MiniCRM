@@ -50,7 +50,6 @@ namespace MiniCRM.Controllers
                 return BadRequest();
             }
 
-
             try
             {
                 var createdTask = await _taskService.AddTask(task);
