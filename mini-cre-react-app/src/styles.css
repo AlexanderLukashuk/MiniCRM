@@ -84,24 +84,24 @@ h2 {
     background-color: #45a049;
 }
 
-.list-employee-container {
+.list-container {
     max-width: 600px;
     margin: 0 auto;
 }
 
-.list-employee-container ul {
+.list-container ul {
     list-style-type: none;
     padding: 0;
 }
 
-.list-employee-container li {
+.list-container li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.employee-info {
+.info {
     flex-grow: 1;
 }
 
