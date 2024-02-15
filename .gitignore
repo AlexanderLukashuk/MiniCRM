@@ -1,1 +1,11 @@
 *.pdf
+
+.DS_Store
+.vscode/
+
+MiniCRM/bin
+MiniCRM/obj
+MiniCRM.BLL/bin
+MiniCRM.BLL/obj
+MiniCRM.DAL/bin
+MiniCRM.DAL/obj
