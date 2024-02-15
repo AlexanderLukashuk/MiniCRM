@@ -21,9 +21,9 @@ const OverdueTaskPage = () => {
     return (
         <div>
             <h2>Overdue Tasks Page</h2>
-            <div>
+            {/* <div>
                 <button onClick={() => window.print()}>Print</button>
-            </div>
+            </div> */}
             <table>
                 <thead>
                     <tr>
@@ -50,7 +50,10 @@ const OverdueTaskPage = () => {
                     ))}
                 </tbody>
             </table>
-            <Link to="/" className="button-link">Home</Link>
+            <div className="report-buttons">
+                <button className="button-link" onClick={() => window.print()}>Print</button>
+                <Link to="/" className="button-link">Home</Link>
+            </div>
         </div>
     );
 };

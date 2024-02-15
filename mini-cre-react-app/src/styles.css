@@ -123,3 +123,12 @@ h2 {
     display: flex;
     justify-content: space-between;
 }
+
+.report-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 180px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
