@@ -9,3 +9,6 @@ MiniCRM.BLL/bin
 MiniCRM.BLL/obj
 MiniCRM.DAL/bin
 MiniCRM.DAL/obj
+
+MiniCRM.Domain/bin
+MiniCRM.Domain/obj
