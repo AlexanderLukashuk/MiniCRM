@@ -12,3 +12,6 @@ MiniCRM.DAL/obj
 
 MiniCRM.Domain/bin
 MiniCRM.Domain/obj
+
+MiniCRM.Application/bin
+MiniCRM.Application/obj
