@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MiniCRM.Domain.Common;
 
 namespace MiniCRM.Domain.Entities
 {
-    public class TaskEntity
+    public class TaskEntity : BaseAuditableEntity
     {
         public int EmployeeId { get; set; }
 
