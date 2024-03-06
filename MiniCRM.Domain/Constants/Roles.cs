@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace MiniCRM.Domain.Constants
 {
-    public class Roles
+    public abstract class Roles
     {
-        
+        public const string Administrator = nameof(Administrator);
     }
 }
